@@ -1,0 +1,14 @@
+/* .title {
+  font-size: 30px;
+  text-align: center;
+  display: flex;
+} */
+
+.title input[type="text"] {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  width: 65%;
+  font-size: 30px;
+  padding: 20px 0px;
+}
