@@ -1,10 +1,11 @@
-import ClockWrap from "./clockWrap";
+import Clock from "./clock";
+import Date from "./date";
 
 function DateTime(props) {
   return (
     <div>
-      <p>{props.date}</p>
-      <ClockWrap></ClockWrap>
+      <Date date={props.date} />
+      <Clock time={props.time} />
     </div>
   );
 }

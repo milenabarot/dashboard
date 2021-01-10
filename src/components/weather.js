@@ -1,9 +1,26 @@
 function Weather(props) {
   return (
     <div>
-      <p>Town API</p>
-      <p>Degrees API</p>
-      <p>Days of week API</p>
+      <p>{`${props.temperature} C`}</p>
+      <p>{props.weather}</p>
+
+      <ul
+        style={{
+          display: "flex",
+          listStyle: "none",
+          justifyContent: "space-around",
+        }}
+      >
+        {props.forecast.map((dayInfo) => {
+          return (
+            <li style={{ padding: "10px" }}>
+              <p>{dayInfo.day}</p>
+              <p>{`${dayInfo.temperature} C`}</p>
+              <p>{dayInfo.weather}</p>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }

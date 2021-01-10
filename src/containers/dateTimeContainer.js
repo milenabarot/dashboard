@@ -1,9 +1,12 @@
 import createReactClass from "create-react-class";
+import DateTime from "../components/dateTime";
 import moment from "moment";
+import axios from "axios";
 
-const ClockWrap = createReactClass({
+const DateTimeContainer = createReactClass({
   getInitialState() {
     return {
+      date: moment().format("LL"),
       time: moment().format("LTS"),
     };
   },
@@ -19,8 +22,8 @@ const ClockWrap = createReactClass({
   },
 
   render() {
-    return <div className="Clock">{this.state.time}</div>;
+    return <DateTime date={this.state.date} time={this.state.time} />;
   },
 });
 
-export default ClockWrap;
+export default DateTimeContainer;
