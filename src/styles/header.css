@@ -18,3 +18,27 @@
   flex-direction: column;
   align-items: center;
 }
+
+.weatherTooltip {
+  background-color: lightskyblue !important;
+}
+
+.weatherTooltip .tippy-arrow {
+  color: lightskyblue !important;
+}
+
+.weatherTooltip-Clouds {
+  background-color: darkgray !important;
+}
+
+.weatherTooltip-Clouds .tippy-arrow {
+  color: darkgray !important;
+}
+
+.weatherTooltip-Clear {
+  background-color: green !important;
+}
+
+.weatherTooltip-Clear .tippy-arrow {
+  color: green !important;
+}

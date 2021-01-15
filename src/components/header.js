@@ -10,6 +10,9 @@ function Header(props) {
         temperature={props.temperature}
         weather={props.weather}
         forecast={props.forecast}
+        sunrise={props.sunrise}
+        sunset={props.sunset}
+        icon={props.icon}
       />
     </div>
   );
