@@ -1,7 +1,7 @@
 function Date(props) {
   return (
-    <div>
-      <p>{props.date}</p>
+    <div className="dateElement">
+      <p className="date">{props.date}</p>
     </div>
   );
 }

@@ -1,0 +1,38 @@
+.dateTime {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dateElement {
+  padding: 20px 40px 20px 0px;
+}
+
+.date {
+  font-size: 25px;
+  color: rgb(5, 106, 106);
+  font-weight: bold;
+}
+
+.clockWrap {
+  display: flex;
+  justify-content: center;
+}
+
+.dashboardClock .react-clock__face {
+  border: 3px solid white;
+  background-color: rgb(250, 228, 218, 0.8);
+}
+
+.dashboardClock .react-clock__mark__body {
+  background-color: teal;
+}
+
+.dashboardClock .react-clock__hour-hand__body,
+.react-clock__minute-hand__body {
+  background-color: teal;
+}
+
+.dashboardClock .react-clock__second-hand__body {
+  background-color: midnightblue;
+}

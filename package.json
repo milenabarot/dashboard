@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/core": "^11.0.0",
+    "@emotion/react": "^11.1.4",
     "@testing-library/jest-dom": "^5.11.8",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
     "@tippyjs/react": "^4.2.0",
+    "add": "^2.0.6",
     "axios": "^0.21.1",
     "create-react-class": "^15.7.0",
     "moment": "^2.29.1",
@@ -14,6 +17,7 @@
     "react-clock": "^3.0.0",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
+    "react-spinners": "^0.10.4",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

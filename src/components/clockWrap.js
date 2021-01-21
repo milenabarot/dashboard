@@ -3,13 +3,9 @@ import "react-clock/dist/Clock.css";
 
 function ClockWrap(props) {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
+    <div className="clockWrap">
       <Clock
+        className="dashboardClock"
         value={props.time}
         size={130}
         renderMinuteMarks={false}

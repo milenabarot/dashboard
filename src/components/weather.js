@@ -1,25 +1,27 @@
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import { followCursor } from "tippy.js";
+import getWeatherToolTipClassName from "../helpers/getWeatherToolTipClassName";
 
 function Weather(props) {
   return (
-    <div>
-      <p>{`${props.temperature} C`}</p>
+    <div className="loadingData">
+      <p>{`${props.currentDay.temp} C`}</p>
 
       <Tippy
-        content={props.weather}
+        content={props.currentDay.weather}
         followCursor
         plugins={[followCursor]}
-        className={`weatherTooltip weatherTooltip-${props.weather}`}
+        className={getWeatherToolTipClassName(props.currentDay.weather)}
+        // className={`weatherTooltip weatherTooltip-${props.currentDay.weather}`}
       >
         <img
-          src={`http://openweathermap.org/img/wn/${props.icon}@4x.png`}
-          alt={props.weather}
+          src={`http://openweathermap.org/img/wn/${props.currentDay.icon}@4x.png`}
+          alt={props.currentDay.weather}
         ></img>
       </Tippy>
-      <p>{`Sunrise ${props.sunrise}`}</p>
-      <p>{`Sunset ${props.sunset}`}</p>
+      <p>{`Sunrise ${props.currentDay.sunrise}`}</p>
+      <p>{`Sunset ${props.currentDay.sunset}`}</p>
 
       <ul
         style={{
@@ -37,7 +39,7 @@ function Weather(props) {
                 content={dayInfo.weather}
                 followCursor
                 plugins={[followCursor]}
-                className={`weatherTooltip weatherTooltip-${dayInfo.weather}`}
+                className={getWeatherToolTipClassName(dayInfo.weather)}
               >
                 <img
                   style={{ maxWidth: "70px" }}

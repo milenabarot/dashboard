@@ -19,6 +19,13 @@
   align-items: center;
 }
 
+/* Loading icon
+.loadingData {
+  visibility: none;
+  background-image: ;
+} */
+
+/* Default weather tooltip styling */
 .weatherTooltip {
   background-color: lightskyblue !important;
 }
@@ -27,6 +34,7 @@
   color: lightskyblue !important;
 }
 
+/* Styles to be appllied with getWeatherToolTipClassName helper function depending on what the currentDay/forecast weather value is */
 .weatherTooltip-Clouds {
   background-color: darkgray !important;
 }
@@ -41,4 +49,20 @@
 
 .weatherTooltip-Clear .tippy-arrow {
   color: green !important;
+}
+
+.weatherTooltip-Rain {
+  background-color: mediumturquoise !important;
+}
+
+.weatherTooltip-Rain .tippy-arrow {
+  color: mediumturquoise !important;
+}
+
+.weatherTooltip-Snow {
+  background-color: black !important;
+}
+
+.weatherTooltip-Snow .tippy-arrow {
+  color: black !important;
 }

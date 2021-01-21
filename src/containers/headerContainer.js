@@ -4,6 +4,7 @@ import createReactClass from "create-react-class";
 import moment from "moment";
 import axios from "axios";
 import convertTemperature from "../helpers/convertTemperature";
+import newDate from "../helpers/newDate";
 
 const API_KEY = "3d7ef965d57061670b60c97811df6490";
 const LATITUDE = "51.135150";
@@ -24,12 +25,15 @@ const HeaderContainer = createReactClass({
     return {
       title: "",
       date: moment().format("LL"),
-      temp: 0,
-      weather: "",
       forecast: [],
-      sunrise: "",
-      sunset: "",
-      icon: "",
+      isLoading: true,
+      currentDay: {
+        temp: 0,
+        weather: "",
+        sunrise: "",
+        sunset: "",
+        icon: "",
+      },
     };
   },
 
@@ -49,14 +53,14 @@ const HeaderContainer = createReactClass({
         const temp = convertTemperature(response.data.current.temp);
         // const temp = Math.round(Number(response.data.current.temp) - 273.15);
         const weather = response.data.current.weather[0].main;
-        const sunriseDate = new Date(response.data.current.sunrise * 1000);
+        const sunriseDate = newDate(response.data.current.sunrise);
         const sunrise = moment(sunriseDate).format("LT");
-        const sunsetDate = new Date(response.data.current.sunset * 1000);
+        const sunsetDate = newDate(response.data.current.sunset);
         const sunset = moment(sunsetDate).format("LT");
         const icon = response.data.current.weather[0].icon;
 
         const forecast = response.data.daily.map((dailyDataItem) => {
-          const dayIndex = new Date(dailyDataItem.dt * 1000).getDay();
+          const dayIndex = newDate(dailyDataItem.dt).getDay();
           const day = days[dayIndex];
           // const dayTemp = Math.round(Number(dailyDataItem.temp.day) - 273.15);
           const dayTemp = convertTemperature(dailyDataItem.temp.day);
@@ -73,12 +77,15 @@ const HeaderContainer = createReactClass({
         // index 0, so by deleting it we skip over it
         delete forecast[0];
         this.setState({
-          temp: temp,
-          weather: weather,
           forecast: forecast,
-          sunrise: sunrise,
-          sunset: sunset,
-          icon: icon,
+          isLoading: false,
+          currentDay: {
+            temp: temp,
+            weather: weather,
+            sunrise: sunrise,
+            sunset: sunset,
+            icon: icon,
+          },
         });
       })
       .catch((error) => {
@@ -102,12 +109,9 @@ const HeaderContainer = createReactClass({
       <Header
         title={this.state.title}
         updateTitle={this.updateTitle}
-        temperature={this.state.temp}
-        weather={this.state.weather}
         forecast={this.state.forecast}
-        sunrise={this.state.sunrise}
-        sunset={this.state.sunset}
-        icon={this.state.icon}
+        currentDay={this.state.currentDay}
+        isLoading={this.state.isLoading}
       />
     );
   },
