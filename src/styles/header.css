@@ -1,9 +1,3 @@
-/* .title {
-  font-size: 30px;
-  text-align: center;
-  display: flex;
-} */
-
 .title input[type="text"] {
   background-color: transparent;
   border: none;
@@ -19,11 +13,7 @@
   align-items: center;
 }
 
-/* Loading icon
-.loadingData {
-  visibility: none;
-  background-image: ;
-} */
+/* weather componenet styles */
 
 /* Default weather tooltip styling */
 .weatherTooltip {

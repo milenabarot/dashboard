@@ -2,7 +2,7 @@ import "./styles/App.css";
 import createReactClass from "create-react-class";
 import HeaderContainer from "./containers/headerContainer";
 import DateTimeContainer from "./containers/dateTimeContainer";
-import SearchContainer from "./containers/searchContainer";
+import Search from "./components/search";
 
 const App = createReactClass({
   getInitialState() {
@@ -14,7 +14,7 @@ const App = createReactClass({
       <div className="App">
         <HeaderContainer />
         <DateTimeContainer />
-        <SearchContainer />
+        <Search />
       </div>
     );
   },

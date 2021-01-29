@@ -93,8 +93,29 @@ const HeaderContainer = createReactClass({
       });
   },
 
+  // switch statement to change the favicon icon depending on what currentDay weather is
   componentDidUpdate() {
     localStorage.setItem("TITLE", this.state.title);
+
+    const favicon = document.getElementById("favicon");
+
+    switch (this.state.currentDay.weather) {
+      case "Clouds":
+        favicon.href = "blueclouds.png";
+        break;
+      case "Rain":
+        favicon.href = "rainyicon.png";
+        break;
+      case "Clear":
+        favicon.href = "sunclearicon.png";
+        break;
+      case "Snow":
+        favicon.href = "snow.png";
+        break;
+
+      default:
+        favicon.href = "leaficon.png";
+    }
   },
 
   updateTitle(event) {
@@ -118,3 +139,9 @@ const HeaderContainer = createReactClass({
 });
 
 export default HeaderContainer;
+
+// const favicon = document.getElementById('favicon')
+
+//     if (this.state.currentDay.weather === 'Clouds') {
+//       favicon.href = 'cloudicon.png'
+// favicon.href = `${this.state.currentDay.icon}`

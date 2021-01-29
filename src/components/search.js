@@ -1,5 +1,22 @@
 import "../styles/search.css";
-function Search(props) {
+import { useState } from "react";
+
+function Search() {
+  const [searchValue, setSearchValue] = useState("");
+
+  const onSearch = () => {
+    const url = `https://www.google.com/search?q=${searchValue}`;
+    window.open(url);
+
+    setSearchValue("");
+  };
+
+  const onSearchInputKeyDown = (event) => {
+    if (event.key === "Enter") {
+      onSearch();
+    }
+  };
+
   return (
     <div className="search">
       <img
@@ -10,11 +27,11 @@ function Search(props) {
       <input
         className="searchValue"
         type="text"
-        value={props.searchValue}
-        onInput={props.editSearchValue}
-        onKeyDown={props.onSearchInputKeyDown}
+        value={searchValue}
+        onInput={(event) => setSearchValue(event.target.value)}
+        onKeyDown={onSearchInputKeyDown}
       />
-      <button className="searchButton" onClick={props.onSearch}>
+      <button className="searchButton" onClick={onSearch}>
         Search
       </button>
     </div>
