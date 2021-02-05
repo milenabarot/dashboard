@@ -139,9 +139,3 @@ const HeaderContainer = createReactClass({
 });
 
 export default HeaderContainer;
-
-// const favicon = document.getElementById('favicon')
-
-//     if (this.state.currentDay.weather === 'Clouds') {
-//       favicon.href = 'cloudicon.png'
-// favicon.href = `${this.state.currentDay.icon}`

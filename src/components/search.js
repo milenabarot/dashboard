@@ -1,8 +1,13 @@
 import "../styles/search.css";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function Search() {
   const [searchValue, setSearchValue] = useState("");
+  const textInputRef = useRef();
+
+  useEffect(() => {
+    textInputRef.current.focus();
+  }, []);
 
   const onSearch = () => {
     const url = `https://www.google.com/search?q=${searchValue}`;
@@ -17,6 +22,8 @@ function Search() {
     }
   };
 
+  // added a ref for input field, so it autofocuses when componenet mounts
+
   return (
     <div className="search">
       <img
@@ -30,6 +37,7 @@ function Search() {
         value={searchValue}
         onInput={(event) => setSearchValue(event.target.value)}
         onKeyDown={onSearchInputKeyDown}
+        ref={textInputRef}
       />
       <button className="searchButton" onClick={onSearch}>
         Search
