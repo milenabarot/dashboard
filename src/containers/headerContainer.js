@@ -24,7 +24,6 @@ const HeaderContainer = createReactClass({
   getInitialState() {
     return {
       title: "",
-      date: moment().format("LL"),
       forecast: [],
       isLoading: true,
       currentDay: {

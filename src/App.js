@@ -15,9 +15,9 @@ const App = createReactClass({
       <div className="App">
         <HeaderContainer />
         <DateTimeContainer />
-        <Search />
-        <div>
+        <div className="wrapComponents">
           <Images />
+          <Search />
         </div>
       </div>
     );

@@ -6,7 +6,7 @@ import getWeatherToolTipClassName from "../helpers/getWeatherToolTipClassName";
 function Weather(props) {
   return (
     <div className="weather">
-      <p>{`${props.currentDay.temp} C`}</p>
+      <p className="temperatureC">{`${props.currentDay.temp} C`}</p>
 
       <Tippy
         content={props.currentDay.weather}

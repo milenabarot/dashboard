@@ -3,8 +3,9 @@
   border: none;
   text-align: center;
   width: 100%;
-  font-size: 30px;
-  padding: 20px 0px;
+  font-size: 45px;
+  padding: 25px 0px;
+  font-family: "Hammersmith One", sans-serif;
 }
 
 .header {
@@ -15,6 +16,11 @@
 
 /* weather componenet styles */
 
+.temperatureC {
+  font-weight: 400;
+  font-size: 28px;
+  margin: 0;
+}
 /* Default weather tooltip styling */
 .weatherTooltip {
   background-color: lightskyblue !important;

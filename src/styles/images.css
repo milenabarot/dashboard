@@ -1,6 +1,7 @@
 .images {
   max-width: 50%;
   padding-left: 20%;
+  flex-basis: 50%;
 }
 
 .slideImage {
@@ -18,23 +19,28 @@
 
 /* Select dropdown  */
 .selectArea {
-  padding: 20px 50px 20px 50px;
-  margin-bottom: 50px;
+  padding: 15px;
+  margin-bottom: 150px;
   color: rgb(5, 106, 106);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .selectText {
-  padding: 5px;
+  padding: 3px;
 }
 
 .selectDropdownImages__control {
-  min-width: 170px;
-  font-size: 15px;
+  min-width: 130px;
+  max-width: 170px;
+  font-size: 13px;
   font-weight: 600px;
   color: green !important;
   background-color: rgb(255, 209, 168, 0.5) !important;
   margin: 5px;
+  border: none !important;
 }
 
 .selectDropdownImages__single-value {
@@ -43,7 +49,7 @@
 
 .selectDropdownImages__menu {
   padding: 5px;
-  font-size: 15px;
+  font-size: 13px;
   color: rgb(5, 106, 106);
   background-color: rgb(255, 209, 168, 0.5) !important;
 }

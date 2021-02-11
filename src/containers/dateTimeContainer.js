@@ -1,8 +1,6 @@
 import createReactClass from "create-react-class";
 import DateTime from "../components/dateTime";
 import moment from "moment";
-import axios from "axios";
-import Clock from "react-clock";
 
 const DateTimeContainer = createReactClass({
   getInitialState() {
