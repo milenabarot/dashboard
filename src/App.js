@@ -1,9 +1,11 @@
 import "./styles/App.css";
 import createReactClass from "create-react-class";
-import HeaderContainer from "./containers/headerContainer";
-import DateTimeContainer from "./containers/dateTimeContainer";
+
 import Search from "./components/search";
 import Images from "./components/images";
+
+import NavBarContainer from "./containers/navBarContainer";
+import WeatherContainer from "./containers/weatherContainer";
 
 const App = createReactClass({
   getInitialState() {
@@ -13,11 +15,11 @@ const App = createReactClass({
   render() {
     return (
       <div className="App">
-        <HeaderContainer />
-        <DateTimeContainer />
+        <NavBarContainer />
         <div className="wrapComponents">
           <Images />
           <Search />
+          <WeatherContainer />
         </div>
       </div>
     );

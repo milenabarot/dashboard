@@ -2,9 +2,13 @@ import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import { followCursor } from "tippy.js";
 import getWeatherToolTipClassName from "../helpers/getWeatherToolTipClassName";
+import "../styles/weather.css";
+import Loader from "./loader";
 
 function Weather(props) {
-  return (
+  return props.isLoading ? (
+    <Loader />
+  ) : (
     <div className="weather">
       <p className="temperatureC">{`${props.currentDay.temp} C`}</p>
 

@@ -1,6 +1,5 @@
-import Header from "../components/header";
 import createReactClass from "create-react-class";
-
+import Weather from "../components/weather";
 import moment from "moment";
 import axios from "axios";
 import convertTemperature from "../helpers/convertTemperature";
@@ -20,10 +19,9 @@ const days = [
   "Saturday",
 ];
 
-const HeaderContainer = createReactClass({
+const WeatherContainer = createReactClass({
   getInitialState() {
     return {
-      title: "",
       forecast: [],
       isLoading: true,
       currentDay: {
@@ -37,13 +35,6 @@ const HeaderContainer = createReactClass({
   },
 
   componentDidMount() {
-    const updatedTitle = localStorage.getItem("TITLE");
-    if (updatedTitle) {
-      this.setState({
-        title: updatedTitle,
-      });
-    }
-
     axios
       .get(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${LATITUDE}&lon=${LONGITUDE}&appid=${API_KEY}`
@@ -94,8 +85,6 @@ const HeaderContainer = createReactClass({
 
   // switch statement to change the favicon icon depending on what currentDay weather is
   componentDidUpdate() {
-    localStorage.setItem("TITLE", this.state.title);
-
     const favicon = document.getElementById("favicon");
 
     switch (this.state.currentDay.weather) {
@@ -117,18 +106,9 @@ const HeaderContainer = createReactClass({
     }
   },
 
-  updateTitle(event) {
-    this.setState({
-      title: event.target.value,
-    });
-  },
-
   render() {
-    document.title = this.state.title;
     return (
-      <Header
-        title={this.state.title}
-        updateTitle={this.updateTitle}
+      <Weather
         forecast={this.state.forecast}
         currentDay={this.state.currentDay}
         isLoading={this.state.isLoading}
@@ -137,4 +117,4 @@ const HeaderContainer = createReactClass({
   },
 });
 
-export default HeaderContainer;
+export default WeatherContainer;

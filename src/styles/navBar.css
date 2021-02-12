@@ -1,0 +1,11 @@
+/* title styles */
+
+.title input[type="text"] {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  width: 100%;
+  font-size: 45px;
+  padding: 25px 0px;
+  font-family: "Hammersmith One", sans-serif;
+}
