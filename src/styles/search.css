@@ -1,7 +1,6 @@
 .search {
   padding-top: 15%;
   padding-bottom: 150px;
-  flex-basis: 50%;
 }
 
 .search input[type="text"] {

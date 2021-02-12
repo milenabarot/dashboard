@@ -16,7 +16,7 @@ const App = createReactClass({
     return (
       <div className="App">
         <NavBarContainer />
-        <div className="wrapComponents">
+        <div className="contentWrap">
           <Images />
           <Search />
           <WeatherContainer />

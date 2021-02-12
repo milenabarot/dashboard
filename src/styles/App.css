@@ -8,8 +8,15 @@
   font-weight: 300;
 }
 
-.wrapComponents {
+.contentWrap {
   display: flex;
   justify-content: center;
   flex-direction: row;
+}
+
+.contentItem {
+  flex-basis: 33%;
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: 10px;
 }

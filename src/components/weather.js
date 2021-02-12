@@ -9,7 +9,7 @@ function Weather(props) {
   return props.isLoading ? (
     <Loader />
   ) : (
-    <div className="weather">
+    <div className="contentItem weather">
       <p className="temperatureC">{`${props.currentDay.temp} C`}</p>
 
       <Tippy
@@ -27,16 +27,10 @@ function Weather(props) {
       <p>{`Sunrise ${props.currentDay.sunrise}`}</p>
       <p>{`Sunset ${props.currentDay.sunset}`}</p>
 
-      <ul
-        style={{
-          display: "flex",
-          listStyle: "none",
-          justifyContent: "space-around",
-        }}
-      >
+      <ul className="weatherForecast">
         {props.forecast.map((dayInfo) => {
           return (
-            <li style={{ padding: "10px" }}>
+            <li className="weatherForecastItem">
               <p>{dayInfo.day}</p>
               <p>{`${dayInfo.temperature} C`}</p>
               <Tippy
@@ -46,7 +40,7 @@ function Weather(props) {
                 className={getWeatherToolTipClassName(dayInfo.weather)}
               >
                 <img
-                  style={{ maxWidth: "70px" }}
+                  className="weatherForecastItemImage"
                   src={`http://openweathermap.org/img/wn/${dayInfo.icon}@4x.png`}
                   alt={dayInfo.weather}
                 ></img>

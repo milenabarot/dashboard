@@ -1,4 +1,18 @@
 /* weather componenet styles */
+.weatherForecast {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  padding: 0;
+}
+
+.weatherForecastItem {
+  padding: 0px;
+}
+
+.weatherForecastItemImage {
+  max-width: 50px;
+}
 
 .temperatureC {
   font-weight: 400;

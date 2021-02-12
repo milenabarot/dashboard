@@ -59,7 +59,7 @@ function Search() {
   // so could call performSearch for the onclick in the list of recent searches
 
   return (
-    <div className="search">
+    <div className="contentItem search">
       <img
         className="googleIcon"
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"

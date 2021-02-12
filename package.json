@@ -12,6 +12,7 @@
     "add": "^2.0.6",
     "axios": "^0.21.1",
     "create-react-class": "^15.7.0",
+    "framer-motion": "^3.3.0",
     "moment": "^2.29.1",
     "pure-react-carousel": "^1.27.6",
     "react": "^17.0.1",

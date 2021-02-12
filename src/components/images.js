@@ -4,12 +4,14 @@ import { CarouselProvider, Slider, Slide } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import Select from "react-select";
 import Loader from "./loader";
+import { AnimatePresence, motion } from "framer-motion";
 
 const PEXELS_API_KEY =
   "563492ad6f917000010000019638a7e317574370b239afeca6603408";
 
 // Hooks and not using fetch instead of axios for get request
 // added in select library and passed in options array to change search query value
+// framer motion to put animation on select isshowingdropdown
 
 function Images() {
   const [images, setImages] = useState([]);
@@ -18,6 +20,8 @@ function Images() {
     value: "landscape",
     label: "Landscape",
   });
+  const [isShowingDropdown, setIsShowingDropdown] = useState(false);
+
   const options = [
     { value: "landscape", label: "Landscape" },
     { value: "sunset sky", label: "Sunset Sky" },
@@ -49,7 +53,7 @@ function Images() {
   // div used instead of img tag in carousel due to img not covering whole background of each individual slide
 
   return (
-    <div className="images">
+    <div className="contentItem images">
       <div className="imageCarousel">
         {isLoading ? (
           <Loader />
@@ -78,20 +82,36 @@ function Images() {
           </CarouselProvider>
         )}
       </div>
-
-      <div className="selectArea">
-        <label className="selectText" htmlFor="">
-          Select image type...
-        </label>
-        <Select
-          options={options}
-          value={searchQuery}
-          classNamePrefix="selectDropdownImages"
-          isSearchable={false}
-          autoFocus={false}
-          onChange={ChangeImages}
-        ></Select>
-      </div>
+      <button
+        className="isShowingDropdownButton"
+        style={{
+          backgroundImage: isShowingDropdown
+            ? `url(${process.env.PUBLIC_URL + "/up-chevron.png"})`
+            : `url(${process.env.PUBLIC_URL + "/down-chevron.png"})`,
+        }}
+        onClick={() => setIsShowingDropdown(!isShowingDropdown)}
+      ></button>
+      <AnimatePresence>
+        {isShowingDropdown ? (
+          <motion.div
+            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: -80 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -80 }}
+            className="selectArea"
+          >
+            <Select
+              options={options}
+              value={searchQuery}
+              classNamePrefix="selectDropdownImages"
+              isSearchable={false}
+              autoFocus={false}
+              onChange={ChangeImages}
+              menuPlacement="top"
+            ></Select>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
 
       {/* <select
         name="searchQuery"
