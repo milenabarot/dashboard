@@ -1,4 +1,56 @@
 /* title styles */
+.navBar {
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+@media only screen and (max-width: 880px) {
+  .navBar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.title {
+  margin-right: 17%;
+  text-decoration: none;
+  position: relative;
+}
+
+@media only screen and (max-width: 880px) {
+  .title {
+    margin: 0;
+  }
+}
+
+.title:after {
+  position: absolute;
+  background: none repeat scroll 0 0 transparent;
+  bottom: 28px;
+  content: "";
+  display: block;
+  height: 3px;
+  left: 35%;
+  background: black;
+  transition: width 0.5s ease 0s, left 0.5s ease 0s;
+  width: 0;
+}
+
+.title:hover::after {
+  width: 70%;
+  left: 100px;
+}
+
+@media only screen and (max-width: 880px) {
+  .title:hover::after {
+    width: 70%;
+    left: 55px;
+  }
+}
+
+/* add outline to none if you don't want the automatic border coming up when input is on focus!*/
 
 .title input[type="text"] {
   background-color: transparent;
@@ -6,6 +58,13 @@
   text-align: center;
   width: 100%;
   font-size: 45px;
-  padding: 25px 0px;
+  padding: 38px 0px;
   font-family: "Hammersmith One", sans-serif;
+  outline: none;
+}
+
+@media only screen and (max-width: 880px) {
+  .title input[type="text"] {
+    font-size: 30px;
+  }
 }

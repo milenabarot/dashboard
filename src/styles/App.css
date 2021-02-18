@@ -2,21 +2,49 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: rgb(232, 245, 255, 0.7);
+}
+
 .App {
   text-align: center;
   font-family: "Yanone Kaffeesatz", sans-serif;
   font-weight: 300;
+  padding: 15px;
+  height: 100vh;
 }
 
 .contentWrap {
   display: flex;
   justify-content: center;
   flex-direction: row;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+@media only screen and (max-width: 1350px) and (min-width: 881px) {
+  .contentWrap {
+    flex-wrap: wrap;
+  }
+}
+
+@media only screen and (max-width: 880px) {
+  .contentWrap {
+    flex-direction: column;
+  }
 }
 
 .contentItem {
   flex-basis: 33%;
   flex-grow: 1;
-  flex-shrink: 0;
-  padding: 10px;
+  flex-shrink: 1;
+  margin: 15px;
+  box-shadow: 10px 10px 19px -1px lightgray;
+  border-radius: 10px;
+  background-color: white;
+  transition: 0.4s ease-in-out;
+}
+
+.contentItem:hover {
+  transform: scale(1.05);
 }

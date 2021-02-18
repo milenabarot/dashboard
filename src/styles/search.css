@@ -1,6 +1,5 @@
 .search {
   padding-top: 15%;
-  padding-bottom: 150px;
 }
 
 .search input[type="text"] {
@@ -12,7 +11,8 @@
   border-radius: 5px;
   background-color: rgba(213, 118, 30, 0.7);
   box-shadow: none;
-  margin: 10px;
+  margin: 10px 12px 10px 12px;
+  outline: none;
 }
 
 .googleIcon {
@@ -27,8 +27,8 @@
   border: 2px solid rgb(5, 106, 106);
   cursor: pointer;
   color: rgb(5, 106, 106);
-  padding: 5px;
-  border-radius: 5px;
+  padding: 7px 5px 6px 5px;
+  border-radius: 10px;
   transition: 0.3s ease-in-out;
 }
 
@@ -48,13 +48,14 @@
 .wrapRecentSearches {
   font-size: 20px;
   font-weight: 400;
-  margin: 25px;
-  font-family: "Oswald", sans-serif;
+  margin: 15px;
+  font-family: "Yanone Kaffeesatz", sans-serif;
 }
 
 .recentSearchesTitle {
   display: flex;
   justify-content: center;
+  font-size: 23px;
 }
 
 .recentSearchesTitle p {
@@ -63,13 +64,22 @@
 
 .recentSearches {
   list-style: none;
-  padding-right: 10%;
+  padding: 0% 8% 0% 8%;
   margin: 0;
+  font-size: 21px;
+  font-weight: 300;
 }
 
-.recentSearches:hover {
+.recentSearch {
+  padding: 5px;
+  text-align: left;
+  margin-left: 10%;
+}
+
+.recentSearch:hover {
   color: green;
   cursor: pointer;
+  font-weight: 400;
 }
 
 .clearRecentSearches {
@@ -84,8 +94,5 @@
   padding: 10px;
   margin-left: 60px;
   margin-top: 20px;
-}
-
-.clearRecentSearches:focus {
-  border: none;
+  outline: none;
 }

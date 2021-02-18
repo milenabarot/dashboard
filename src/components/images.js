@@ -5,13 +5,15 @@ import "pure-react-carousel/dist/react-carousel.es.css";
 import Select from "react-select";
 import Loader from "./loader";
 import { AnimatePresence, motion } from "framer-motion";
+import { components } from "react-select";
 
 const PEXELS_API_KEY =
   "563492ad6f917000010000019638a7e317574370b239afeca6603408";
 
-// Hooks and not using fetch instead of axios for get request
+// Using Hooks and using fetch instead of axios for get request
 // added in select library and passed in options array to change search query value
-// framer motion to put animation on select isshowingdropdown
+// framer motion to put animation on select dropdown
+// removed isShowingDropdown state and chevron code
 
 function Images() {
   const [images, setImages] = useState([]);
@@ -20,7 +22,7 @@ function Images() {
     value: "landscape",
     label: "Landscape",
   });
-  const [isShowingDropdown, setIsShowingDropdown] = useState(false);
+  // const [isShowingDropdown, setIsShowingDropdown] = useState(false);
 
   const options = [
     { value: "landscape", label: "Landscape" },
@@ -39,9 +41,13 @@ function Images() {
       .then((response) => response.json())
       .then((data) => {
         const photosArray = data.photos.map((photoItem) => {
-          return photoItem.src.large;
+          return {
+            value: photoItem.src.large,
+            url: photoItem.url,
+          };
         });
         setImages(photosArray);
+
         setIsLoading(false);
       });
   }, [searchQuery]);
@@ -51,6 +57,19 @@ function Images() {
   };
 
   // div used instead of img tag in carousel due to img not covering whole background of each individual slide
+
+  const Menu = (menuProps) => (
+    <AnimatePresence>
+      <motion.div
+        inital={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: -50 }}
+        exit={{ opacity: 0, y: -150 }}
+        transition={{ duration: 0.7 }}
+      >
+        <components.Menu {...menuProps}>{menuProps.children}</components.Menu>
+      </motion.div>
+    </AnimatePresence>
+  );
 
   return (
     <div className="contentItem images">
@@ -71,10 +90,12 @@ function Images() {
               {images.map((image, index) => {
                 return (
                   <Slide index={index}>
-                    <div
-                      className="slideImage"
-                      style={{ backgroundImage: `url(${image})` }}
-                    ></div>
+                    <a href={image.url} target="_blank" rel="noreferrer">
+                      <div
+                        className="slideImage"
+                        style={{ backgroundImage: `url(${image.value})` }}
+                      ></div>
+                    </a>
                   </Slide>
                 );
               })}
@@ -82,38 +103,28 @@ function Images() {
           </CarouselProvider>
         )}
       </div>
-      <button
-        className="isShowingDropdownButton"
-        style={{
-          backgroundImage: isShowingDropdown
-            ? `url(${process.env.PUBLIC_URL + "/up-chevron.png"})`
-            : `url(${process.env.PUBLIC_URL + "/down-chevron.png"})`,
-        }}
-        onClick={() => setIsShowingDropdown(!isShowingDropdown)}
-      ></button>
-      <AnimatePresence>
-        {isShowingDropdown ? (
-          <motion.div
-            transition={{ duration: 0.6 }}
-            initial={{ opacity: 0, y: -80 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -80 }}
-            className="selectArea"
-          >
-            <Select
-              options={options}
-              value={searchQuery}
-              classNamePrefix="selectDropdownImages"
-              isSearchable={false}
-              autoFocus={false}
-              onChange={ChangeImages}
-              menuPlacement="top"
-            ></Select>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
+      <div>
+        <div className="selectArea">
+          <Select
+            options={options}
+            value={searchQuery}
+            classNamePrefix="selectDropdownImages"
+            isSearchable={false}
+            autoFocus={false}
+            onChange={ChangeImages}
+            menuPlacement="top"
+            components={{ Menu }}
+          ></Select>
+        </div>
+      </div>
+    </div>
+  );
+}
 
-      {/* <select
+export default Images;
+
+/* code before added in select library 
+/* <select
         name="searchQuery"
         id="searchQuery"
         onChange={(event) => setSearchQuery(event.target.value)}
@@ -122,9 +133,17 @@ function Images() {
         <option value="Sunset Sky">Sunset Sky</option>
         <option value="Sunrise Sky">Sunrise Sky</option>
         <option value="Mountains">Mountains</option>
-      </select> */}
-    </div>
-  );
-}
+      </select> */
 
-export default Images;
+/* code for isShowingDropdown with the chevron to display the select onclick
+         /* <button
+          className="isShowingDropdownButton"
+          style={{
+            backgroundImage: isShowingDropdown
+              ? `url(${process.env.PUBLIC_URL + "/up-chevron.png"})`
+              : `url(${process.env.PUBLIC_URL + "/down-chevron.png"})`,
+          }}
+          onClick={() => setIsShowingDropdown(!isShowingDropdown)}
+        ></button> */
+
+/* {isShowingDropdown ? ( */

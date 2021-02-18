@@ -10,6 +10,7 @@ function Weather(props) {
     <Loader />
   ) : (
     <div className="contentItem weather">
+      <p className="currentDayTitle">Today's weather</p>
       <p className="temperatureC">{`${props.currentDay.temp} C`}</p>
 
       <Tippy
@@ -22,9 +23,10 @@ function Weather(props) {
         <img
           src={`http://openweathermap.org/img/wn/${props.currentDay.icon}@4x.png`}
           alt={props.currentDay.weather}
+          className="currentDayImage"
         ></img>
       </Tippy>
-      <p>{`Sunrise ${props.currentDay.sunrise}`}</p>
+      <p className="currentDaySunrise">{`Sunrise ${props.currentDay.sunrise}`}</p>
       <p>{`Sunset ${props.currentDay.sunset}`}</p>
 
       <ul className="weatherForecast">

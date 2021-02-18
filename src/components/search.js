@@ -1,5 +1,6 @@
 import "../styles/search.css";
 import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 // Used Hooks here
 
@@ -31,7 +32,7 @@ function Search() {
 
   const performSearch = (value) => {
     const url = `https://www.google.com/search?q=${value}`;
-    window.open(url);
+    // window.open(url);
   };
 
   const settingOfRecentSearchValues = () => {
@@ -88,16 +89,25 @@ function Search() {
             onClick={clearRecentSearchValues}
           ></button>
         </div>
-        <ul>
-          {recentSearchValues.map((value, id) => {
-            return (
-              <div className="recentSearches">
-                <li key={id + 1} onClick={() => performSearch(value)}>
+
+        <ul className="recentSearches">
+          <AnimatePresence>
+            {recentSearchValues.map((value, id) => {
+              return (
+                <motion.li
+                  inital={{ opacity: 0, y: -150 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -150 }}
+                  transition={{ duration: 0.8 }}
+                  key={id + 1}
+                  className="recentSearch"
+                  onClick={() => performSearch(value)}
+                >
                   {value}
-                </li>
-              </div>
-            );
-          })}
+                </motion.li>
+              );
+            })}
+          </AnimatePresence>
         </ul>
       </div>
     </div>

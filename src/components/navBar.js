@@ -4,7 +4,7 @@ import "../styles/navBar.css";
 
 function NavBar(props) {
   return (
-    <div>
+    <div class="navBar">
       <Title title={props.title} updateTitle={props.updateTitle} />
       <DateTimeContainer />
     </div>
