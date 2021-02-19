@@ -12,25 +12,49 @@ body {
   font-weight: 300;
   padding: 15px;
   height: 100vh;
+  overflow: hidden;
 }
 
 .contentWrap {
   display: flex;
   justify-content: center;
   flex-direction: row;
-  margin-left: 80px;
-  margin-right: 80px;
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-bottom: 150px;
+}
+
+@media only screen and (max-width: 1600px) and (min-width: 1350px) {
+  .contentWrap {
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 0;
+  }
 }
 
 @media only screen and (max-width: 1350px) and (min-width: 881px) {
   .contentWrap {
     flex-wrap: wrap;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 0;
+  }
+
+  .App {
+    overflow: visible;
   }
 }
 
 @media only screen and (max-width: 880px) {
   .contentWrap {
     flex-direction: column;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 0;
+  }
+
+  .App {
+    overflow: visible;
   }
 }
 

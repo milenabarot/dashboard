@@ -6,7 +6,7 @@ import NavBar from "../components/navBar";
 const NavBarContainer = createReactClass({
   getInitialState() {
     return {
-      title: "",
+      title: "Dashboard",
     };
   },
 

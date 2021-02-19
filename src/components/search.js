@@ -32,7 +32,7 @@ function Search() {
 
   const performSearch = (value) => {
     const url = `https://www.google.com/search?q=${value}`;
-    // window.open(url);
+    window.open(url);
   };
 
   const settingOfRecentSearchValues = () => {

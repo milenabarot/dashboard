@@ -12,7 +12,6 @@ const PEXELS_API_KEY =
 
 // Using Hooks and using fetch instead of axios for get request
 // added in select library and passed in options array to change search query value
-// framer motion to put animation on select dropdown
 // removed isShowingDropdown state and chevron code
 
 function Images() {
@@ -56,7 +55,7 @@ function Images() {
     setSearchQuery(newSearchQuery);
   };
 
-  // div used instead of img tag in carousel due to img not covering whole background of each individual slide
+  // Menu component to pass into select tag for animation
 
   const Menu = (menuProps) => (
     <AnimatePresence>
@@ -70,6 +69,8 @@ function Images() {
       </motion.div>
     </AnimatePresence>
   );
+
+  // div used instead of img tag in carousel due to img not covering whole background of each individual slide
 
   return (
     <div className="contentItem images">
